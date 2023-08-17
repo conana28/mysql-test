@@ -36,3 +36,9 @@ model Wine {
   updatedAt DateTime @updatedAt
   bottle    Bottle[]
 }
+
+model WineType {
+  id    Int    @id @default(autoincrement())
+  value String
+  label String
+}

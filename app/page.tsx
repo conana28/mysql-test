@@ -18,10 +18,12 @@ export default function Home() {
         >
           Test Modal
         </Link>
-
         <Button asChild variant="secondary" className="pl:3">
           <Link href="/forms/bottle-card">Card bottle</Link>
         </Button>
+        <Button asChild variant="secondary" className="pl:3">
+          <Link href="/wine">Wine</Link>
+        </Button>{" "}
         <Button asChild variant="secondary" className="pl:3">
           <Link href="/cellar">Cellar</Link>
         </Button>

@@ -9,6 +9,23 @@ export async function GET(request: Request) {
   return NextResponse.json(wines)
 }
 
+export async function POST(request: Request) {
+  try {
+    const json = await request.json()
+    console.log("JSON", json)
+    const wine = await prisma.wine.create({
+       data: json
+    })
+
+    return new NextResponse(JSON.stringify(wine), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    })
+  } catch (error: any) {
+    return new NextResponse(error.message, { status: 501 })
+  }
+}
+
 export async function PATCH(request: Request) {
   try {
     const json = await request.json()
@@ -19,6 +36,9 @@ export async function PATCH(request: Request) {
         producer: json.producer,
         wineName: json.wineName,
         country: json.country,
+        region: json.region,
+        subRegion: json.subRegion,
+        type: json.type,
       },
     })
 

@@ -38,6 +38,7 @@ const page = () => {
     const fetchData = async () => {
       const res = await fetch(`/api/bottle/${search}`);
       const data = await res.json();
+      console.log("Fetch Data", data);
       setBtls1(data);
     };
 

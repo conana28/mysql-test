@@ -165,9 +165,7 @@ export const ConsumeBottleModal: React.FC<ConsumeModalProps> = ({
                   <Button variant="outline" onClick={cancelHandler}>
                     Cancel
                   </Button>
-                  <Button variant="destructive" type="submit">
-                    Continue
-                  </Button>
+                  <Button type="submit">Continue</Button>
                 </div>
               </form>
             </Form>

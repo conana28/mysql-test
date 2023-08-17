@@ -14,6 +14,8 @@ interface ContextProps {
   setUserId: Dispatch<SetStateAction<boolean>>;
   showBtls: boolean;
   setShowBtls: Dispatch<SetStateAction<boolean>>;
+  showWines: boolean;
+  setShowWines: Dispatch<SetStateAction<boolean>>;
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -25,6 +27,10 @@ const GlobalContext = createContext<ContextProps>({
   setShowBtls: (): boolean => {
     return true;
   },
+  showWines: false,
+  setShowWines: (): boolean => {
+    return true;
+  },
 });
 
 export const GlobalContextProvider = ({
@@ -34,10 +40,18 @@ export const GlobalContextProvider = ({
 }) => {
   const [userId, setUserId] = useState(false);
   const [showBtls, setShowBtls] = useState(false);
+  const [showWines, setShowWines] = useState(false);
 
   return (
     <GlobalContext.Provider
-      value={{ userId, setUserId, showBtls, setShowBtls }}
+      value={{
+        userId,
+        setUserId,
+        showBtls,
+        setShowBtls,
+        showWines,
+        setShowWines,
+      }}
     >
       {children}
     </GlobalContext.Provider>

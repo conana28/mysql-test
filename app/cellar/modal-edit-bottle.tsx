@@ -32,7 +32,7 @@ export const EditBottleModal: React.FC<EditModalProps> = ({
   btl,
 }) => {
   const editFormSchema = z.object({
-    vintage: z.coerce.number().gt(1900).lt(2030),
+    vintage: z.coerce.number().gt(1970).lt(2030),
     rack: z.string().min(2),
     shelf: z.string(),
     cost: z.coerce.number().optional(),
@@ -82,7 +82,7 @@ export const EditBottleModal: React.FC<EditModalProps> = ({
     <>
       <Modal
         title="Edit Bottle"
-        description="Description"
+        description={`${btl.vintage} ${btl.wine.producer} ${btl.wine.wineName} (${btl.id})`}
         isOpen={isOpen}
         onClose={onClose}
       >
@@ -153,9 +153,7 @@ export const EditBottleModal: React.FC<EditModalProps> = ({
                   <Button variant="outline" onClick={cancelHandler}>
                     Cancel
                   </Button>
-                  <Button variant="destructive" type="submit">
-                    Edit
-                  </Button>
+                  <Button type="submit">Edit</Button>
                 </div>
               </form>
             </Form>
